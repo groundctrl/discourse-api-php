@@ -2,6 +2,4 @@
 
 $client = require __DIR__ . '/client.php';
 
-$result = $client->groups();
-
-print_r($result);
+print_r($client->groups());

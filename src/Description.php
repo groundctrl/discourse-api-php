@@ -10,7 +10,7 @@ class Description extends BaseDescription
             'groups' => [
                 'httpMethod' => 'GET',
                 'uri' => '/admin/groups.json',
-                'responseModel' => 'jsonResponse'
+                'responseModel' => 'listResponse',
             ],
             'categories' => [
                 'httpMethod' => 'GET',
@@ -34,6 +34,12 @@ class Description extends BaseDescription
                 'type' => 'object',
                 'additionalProperties' => [
                     'location' => 'json'
+                ]
+            ],
+            'listResponse' => [
+                'type' => 'array',
+                'items' => [
+                    '$ref' => 'jsonResponse'
                 ]
             ]
         ]

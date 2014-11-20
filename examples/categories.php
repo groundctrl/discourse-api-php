@@ -1,7 +1,6 @@
 <?php # Discourse API
 
+/** @var \GuzzleHttp\Command\Guzzle\GuzzleClient $client */
 $client = require __DIR__ . '/client.php';
 
-$result = $client->categories();
-
-print_r($result);
+print_r($client->categories());
