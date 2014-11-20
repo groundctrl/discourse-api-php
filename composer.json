@@ -1,0 +1,22 @@
+{
+    "name": "groundctrl/discourse-api",
+    "description": "Discourse API for PHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Crumm",
+            "email": "mike.crumm@groundctrl.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle-services": "~0.4"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "2.1-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ctrl\\Discourse\\Api\\": "src"
+        }
+    }
+}
