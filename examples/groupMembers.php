@@ -2,14 +2,10 @@
 
 $client = require __DIR__ . '/client.php';
 
-$sluggify = function($str) {
-    return [ 'slug' => $str ];
-};
+if(!isset($argv[1])) {
+    die(sprintf('Usage: %s <group>' . PHP_EOL, $argv[0]));
+}
 
-print("Admins:".PHP_EOL);
-print_r($client->groupMembers($sluggify('admins')));
-echo PHP_EOL;
+$group = $argv[1];
 
-print("Trust Level 0:".PHP_EOL);
-print_r($client->groupMembers($sluggify('trust_level_0')));
-echo PHP_EOL;
+print_r($client->groupMembers( ['slug' => $group  ]));
