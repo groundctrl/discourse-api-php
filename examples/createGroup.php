@@ -9,4 +9,3 @@ if(!isset($argv[1])) {
 $name = $argv[1];
 
 print_r($client->createGroup( ['group' => [ 'name' => $name ] ]));
-#print_r($client->createGroup([1, 2, 3]));
