@@ -1,17 +1,13 @@
 <?php namespace Ctrl\Discourse\Api;
 
 use GuzzleHttp\Command\Guzzle\Description as BaseDescription;
+use GuzzleHttp\Utils;
 
 class Description extends BaseDescription
 {
     /** @var array */
     protected $defaults = [
         'operations' => [
-            'groups' => [
-                'httpMethod' => 'GET',
-                'uri' => '/admin/groups.json',
-                'responseModel' => 'listResponse',
-            ],
             'categories' => [
                 'httpMethod' => 'GET',
                 'uri' => '/categories.json',
@@ -27,7 +23,40 @@ class Description extends BaseDescription
                         'location' => 'uri'
                     ]
                 ]
-            ]
+            ],
+            'groups' => [
+                'httpMethod' => 'GET',
+                'uri' => '/admin/groups.json',
+                'responseModel' => 'jsonResponse',
+            ],
+            'createGroup' => [
+                'httpMethod' => 'POST',
+                'uri' => '/admin/groups',
+                'responseModel' => 'jsonResponse',
+                'parameters' => [
+                    'group' => [
+                        'type' => 'array',
+                        'location' => 'postField',
+                    ]
+                ]
+            ],
+            'users' => [
+                'httpMethod' => 'GET',
+                'uri' => '/admin/users.json',
+                'responseModel' => 'jsonResponse',
+            ],
+            'groupMembers' => [
+                'httpMethod' => 'GET',
+                'uri' => '/groups/{slug}/members.json',
+                'responseModel' => 'jsonResponse',
+                'parameters' => [
+                    'slug' => [
+                        'type' => 'string',
+                        'location' => 'uri'
+                    ]
+                ]
+            ],
+
         ],
         'models' => [
             'jsonResponse' => [
@@ -36,12 +65,6 @@ class Description extends BaseDescription
                     'location' => 'json'
                 ]
             ],
-            'listResponse' => [
-                'type' => 'array',
-                'items' => [
-                    '$ref' => 'jsonResponse'
-                ]
-            ]
         ]
     ];
 
