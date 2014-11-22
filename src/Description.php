@@ -24,6 +24,29 @@ class Description extends BaseDescription
                     ]
                 ]
             ],
+            'createCategory' => [
+                'httpMethod' => 'POST',
+                'uri' => '/categories.json',
+                'responseModel' => 'jsonResponse',
+                'parameters' => [
+                    'name' => [
+                        'type' => 'string',
+                        'location' => 'postField'
+                    ],
+                    'color' => [
+                        'type' => 'string',
+                        'location' => 'postField'
+                    ],
+                    'text_color' => [
+                        'type' => 'string',
+                        'location' => 'postField'
+                    ],
+                    'parent_category_id' => [
+                        'type' => 'integer',
+                        'location' => 'postField'
+                    ],
+                ]
+            ],
             'groups' => [
                 'httpMethod' => 'GET',
                 'uri' => '/admin/groups.json',
@@ -40,11 +63,6 @@ class Description extends BaseDescription
                     ]
                 ]
             ],
-            'users' => [
-                'httpMethod' => 'GET',
-                'uri' => '/admin/users.json',
-                'responseModel' => 'jsonResponse',
-            ],
             'groupMembers' => [
                 'httpMethod' => 'GET',
                 'uri' => '/groups/{slug}/members.json',
@@ -56,7 +74,22 @@ class Description extends BaseDescription
                     ]
                 ]
             ],
-
+            'users' => [
+                'httpMethod' => 'GET',
+                'uri' => '/admin/users.json',
+                'responseModel' => 'jsonResponse',
+            ],
+            'deleteCategory' => [
+                'httpMethod' => 'DELETE',
+                'uri' => '/categories/{slug}.json',
+                'responseModel' => 'jsonResponse',
+                'parameters' => [
+                    'slug' => [
+                        'type' => 'string',
+                        'location' => 'uri',
+                    ]
+                ]
+            ]
         ],
         'models' => [
             'jsonResponse' => [
