@@ -1,33 +1,28 @@
 {
     "operations": {
-        "SsoSync": {
+        "SyncSso": {
             "extends": "discourse.post",
+            "uri": "/admin/users/sync_sso/",
             "parameters": {
-                "secret": {
-                    "type": "string",
-                    "sentAs": "sso_secret",
-                    "location": "postField",
-                    "required": true
-                },
-                "external_id": {
+                "id": {
                     "type": "integer",
-                    "location": "postField",
+                    "sentAs": "external_id",
+                    "location": "json",
                     "required": true
                 },
                 "email": {
                     "type": "string",
-                    "location": "postField",
+                    "location": "json",
                     "required": true
                 },
                 "username": {
                     "type": "string",
-                    "location": "postField",
+                    "location": "json",
                     "required": true
                 },
                 "name": {
                     "type": "string",
-                    "location": "postField",
-                    "required": true
+                    "location": "json"
                 }
             }
         }

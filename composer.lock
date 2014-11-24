@@ -4,8 +4,47 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dd9d0bdd87a895fc43d397325f63d50a",
+    "hash": "17e72192afb8c7c0144ebb08667a56ff",
     "packages": [
+        {
+            "name": "ctrl/discourse-sso",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/groundctrl/discourse-sso-php.git",
+                "reference": "d414204a85b244cd65197628ca60d3db1024583e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/groundctrl/discourse-sso-php/zipball/d414204a85b244cd65197628ca60d3db1024583e",
+                "reference": "d414204a85b244cd65197628ca60d3db1024583e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 5.4"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "2.1.0-RC1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ctrl\\Discourse\\Sso\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ground(ctrl)",
+                    "homepage": "https://github.com/groundctrl/discourse-sso-php/contributors"
+                }
+            ],
+            "description": "Discourse SSO for offsite logins",
+            "time": "2014-11-24 18:05:19"
+        },
         {
             "name": "guzzle/guzzle",
             "version": "v3.9.2",
@@ -162,7 +201,7 @@
     "stability-flags": [],
     "prefer-stable": false,
     "platform": {
-        "php": ">=5.3.3"
+        "php": ">=5.4"
     },
     "platform-dev": []
 }

@@ -4,6 +4,7 @@
     "includes": [
         "api/categories.json",
         "api/groups.json",
+        "api/sso.json",
         "api/users.json",
         "api/base.json"
     ],
