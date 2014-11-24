@@ -14,16 +14,16 @@ class Discourse extends Client
      */
     public static function factory($config = array ())
     {
-        $required = array ('base_url', 'api_key', 'api_username');
+        $required = [ 'base_url', 'api_key', 'api_username' ];
 
-        $config = Collection::fromConfig($config, array (), $required);
+        $config = Collection::fromConfig($config, [], $required);
 
-        $client = new self($config['base_url'], array (
-            'command.params' => array (
+        $client = new self($config['base_url'], [
+            'command.params' => [
                 'api_key'       => $config['api_key'],
                 'api_username'  => $config['api_username']
-            )
-        ));
+            ]
+        ]);
 
         return $client->setDescription(static::createDescription());
     }
