@@ -1,22 +1,24 @@
 {
-    "name": "groundctrl/discourse-api",
-    "description": "Discourse API for PHP",
+    "name": "ctrl/discourse",
+    "description": "Discourse API Client",
     "license": "MIT",
     "authors": [
         {
             "name": "Michael Crumm",
             "email": "mike.crumm@groundctrl.com"
+        },
+        {
+            "name": "All Contributors",
+            "homepage": "https://github.com/groundctrl/discourse-api-php/contributors"
         }
     ],
     "require": {
-        "guzzlehttp/guzzle-services": "~0.4"
-    },
-    "require-dev": {
-        "phpspec/phpspec": "2.1-RC1"
+        "php": ">=5.3.3",
+        "guzzle/guzzle": "3.*"
     },
     "autoload": {
         "psr-4": {
-            "Ctrl\\Discourse\\Api\\": "src"
+            "Ctrl\\Discourse\\": "src"
         }
     }
 }

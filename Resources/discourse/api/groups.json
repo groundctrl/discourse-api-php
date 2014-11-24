@@ -1,0 +1,77 @@
+{
+    "operations": {
+        "Groups": {
+            "extends": "discourse.base",
+            "httpMethod": "GET",
+            "uri": "/admin/groups.json"
+        },
+        "CreateGroup": {
+            "extends": "Groups",
+            "httpMethod": "POST",
+            "parameters": {
+                "group": {
+                    "type": "array",
+                    "location": "postField"
+                }
+            }
+        },
+        "GroupMod": {
+            "extends": "discourse.base",
+            "httpMethod": "PATCH",
+            "uri": "/admin/groups/{id}",
+            "parameters": {
+                "id": {
+                    "type": "integer",
+                    "location": "uri",
+                    "required": true
+                },
+                "parameters": {
+                    "changes": {
+                        "type": "object",
+                        "location": "json",
+                        "required": true
+                    }
+                }
+            }
+        },
+        "GroupAdd": {
+            "extends": "GroupMod",
+            "parameters": {
+                "changes": {
+                    "properties": {
+                        "add": {
+                            "type": "array",
+                            "location": "json",
+                            "required": true,
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "GroupRemove": {
+            "extends": "GroupMod",
+            "parameters": {
+                "changes": {
+                    "properties": {
+                        "delete": {
+                            "type": "array",
+                            "location": "json",
+                            "required": true,
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "GroupMembers": {
+            "extends": "discourse.slug",
+            "httpMethod": "GET",
+            "uri": "/groups/{slug}/members.json"
+        }
+    }
+}

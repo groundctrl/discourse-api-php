@@ -1,0 +1,58 @@
+{
+    "operations": {
+        "Categories": {
+            "extends": "discourse.base",
+            "httpMethod": "GET",
+            "uri": "/categories.json"
+        },
+        "CategoryLatestTopics": {
+            "extends": "discourse.slug",
+            "httpMethod": "GET",
+            "uri": "/c/{slug}/l/latest.json"
+        },
+        "CreateCategory": {
+            "extends": "Categories",
+            "httpMethod": "POST",
+            "parameters": {
+                "name": {
+                    "type": "string",
+                    "location": "postField",
+                    "required": true
+                },
+                "color": {
+                    "type": "string",
+                    "location": "postField",
+                    "required": true,
+                    "default": "000000"
+
+                },
+                "text_color": {
+                    "type": "string",
+                    "location": "postField",
+                    "required": true,
+                    "default": "FFFFFF"
+                }
+            },
+            "additionalProperties": {
+                "location": "postField"
+            }
+        },
+        "UpdateCategory": {
+            "extends": "CreateCategory",
+            "httpMethod": "PUT",
+            "uri": "/categories/{id}.json",
+            "parameters": {
+                "id": {
+                    "type": "integer",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "DeleteCategory": {
+            "extends": "discourse.slug",
+            "httpMethod": "DELETE",
+            "uri": "/categories/{slug}.json"
+        }
+    }
+}

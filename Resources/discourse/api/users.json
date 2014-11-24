@@ -1,0 +1,33 @@
+{
+    "operations": {
+        "ActiveUsers": {
+            "extends": "discourse.base",
+            "httpMethod": "GET",
+            "uri": "/admin/users/list/active.json",
+            "parameters": {
+                "filter": {
+                    "type": "string",
+                    "location": "query",
+                    "required": true,
+                    "default": ""
+                }
+            }
+        },
+        "Users": {
+            "extends": "discourse.base",
+            "httpMethod": "GET",
+            "uri": "/admin/users.json"
+        },
+        "User": {
+            "extends": "discourse.base",
+            "httpMethod": "GET",
+            "uri": "/users/{username}.json",
+            "parameters": {
+                "username": {
+                    "type": "string",
+                    "location": "uri"
+                }
+            }
+        }
+    }
+}

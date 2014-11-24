@@ -1,5 +1,0 @@
-formatter.name: pretty
-suites:
-  discourse_api_suite:
-    namespace: Ctrl\Discourse\Api
-    psr4_prefix: Ctrl\Discourse\Api

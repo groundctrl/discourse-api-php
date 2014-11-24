@@ -1,0 +1,40 @@
+{
+    "operations": {
+        "discourse.base": {
+            "responseClass": "jsonResponse",
+            "parameters": {
+                "api_key": {
+                    "type": "string",
+                    "location": "query",
+                    "required": true
+                },
+                "api_username": {
+                    "type": "string",
+                    "location": "query",
+                    "required": true
+                }
+            }
+        },
+        "discourse.post": {
+            "extends": "discourse.base",
+            "httpMethod": "POST",
+            "additionalProperties": {
+                "location": "postField"
+            }
+        },
+        "discourse.put": {
+            "extends": "discourse.post",
+            "httpMethod": "PUT"
+        },
+        "discourse.slug": {
+            "extends": "discourse.base",
+            "parameters": {
+                "slug": {
+                    "type": "string",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        }
+    }
+}

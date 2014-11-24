@@ -1,0 +1,35 @@
+{
+    "operations": {
+        "SsoSync": {
+            "extends": "discourse.post",
+            "parameters": {
+                "secret": {
+                    "type": "string",
+                    "sentAs": "sso_secret",
+                    "location": "postField",
+                    "required": true
+                },
+                "external_id": {
+                    "type": "integer",
+                    "location": "postField",
+                    "required": true
+                },
+                "email": {
+                    "type": "string",
+                    "location": "postField",
+                    "required": true
+                },
+                "username": {
+                    "type": "string",
+                    "location": "postField",
+                    "required": true
+                },
+                "name": {
+                    "type": "string",
+                    "location": "postField",
+                    "required": true
+                }
+            }
+        }
+    }
+}
