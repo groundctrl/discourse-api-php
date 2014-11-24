@@ -4,17 +4,14 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Michael Crumm",
-            "email": "mike.crumm@groundctrl.com"
-        },
-        {
-            "name": "All Contributors",
+            "name": "ground(ctrl)",
             "homepage": "https://github.com/groundctrl/discourse-api-php/contributors"
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "guzzle/guzzle": "3.*"
+        "php": ">=5.4",
+        "guzzle/guzzle": "3.*",
+        "ctrl/discourse-sso": "~1.0"
     },
     "autoload": {
         "psr-4": {
