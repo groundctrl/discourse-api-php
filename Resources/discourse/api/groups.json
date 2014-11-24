@@ -15,7 +15,7 @@
                 }
             }
         },
-        "GroupMod": {
+        "GroupAdd": {
             "extends": "discourse.base",
             "httpMethod": "PATCH",
             "uri": "/admin/groups/{id}",
@@ -25,19 +25,10 @@
                     "location": "uri",
                     "required": true
                 },
-                "parameters": {
-                    "changes": {
-                        "type": "object",
-                        "location": "json",
-                        "required": true
-                    }
-                }
-            }
-        },
-        "GroupAdd": {
-            "extends": "GroupMod",
-            "parameters": {
                 "changes": {
+                    "type": "object",
+                    "location": "json",
+                    "required": true,
                     "properties": {
                         "add": {
                             "type": "array",
@@ -52,9 +43,19 @@
             }
         },
         "GroupRemove": {
-            "extends": "GroupMod",
+            "extends": "discourse.base",
+            "httpMethod": "PATCH",
+            "uri": "/admin/groups/{id}",
             "parameters": {
+                "id": {
+                    "type": "integer",
+                    "location": "uri",
+                    "required": true
+                },
                 "changes": {
+                    "type": "object",
+                    "location": "json",
+                    "required": true,
                     "properties": {
                         "delete": {
                             "type": "array",
