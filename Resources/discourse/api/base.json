@@ -18,7 +18,7 @@
         "discourse.post": {
             "extends": "discourse.base",
             "httpMethod": "POST",
-            "additionalProperties": {
+            "additionalParameters": {
                 "location": "postField"
             }
         },

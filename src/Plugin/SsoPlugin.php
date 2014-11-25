@@ -4,6 +4,7 @@ use Ctrl\Discourse\Sso\Payload;
 use Ctrl\Discourse\Sso\QuerySigner;
 use Guzzle\Common\Event;
 use Guzzle\Http\Message\RequestInterface;
+use Guzzle\Http\QueryString;
 use Guzzle\Service\Command\CommandInterface;
 use Guzzle\Service\Command\DefaultRequestSerializer;
 use Guzzle\Service\Command\RequestSerializerInterface;
@@ -55,17 +56,10 @@ class SsoPlugin implements EventSubscriberInterface, RequestSerializerInterface
     {
         /** @var \Guzzle\Http\Message\EntityEnclosingRequestInterface $request */
         $request    = $this->serializer->prepare($command);
-        $payload    = new Payload($this->signer, json_decode($request->getBody(), true));
+        $payload    = new Payload($this->signer, $request->getPostFields()->toArray());
+        $sso        = QueryString::fromString($payload->getQueryString());
 
-        $payloadQueryString = $payload->getQueryString();
-        $params = [];
-        parse_str($payloadQueryString, $params);
-
-        $queryString = $request->getQuery();
-
-        foreach ($params as $key => $value) {
-            $queryString->set($key, $value);
-        }
+        $request->getQuery()->merge($sso);
 
         return $request;
     }
