@@ -1,33 +1,22 @@
 <?php namespace Ctrl\Discourse\Plugin;
 
 use Ctrl\Discourse\Sso\Payload;
-use Ctrl\Discourse\Sso\QuerySigner;
 use Guzzle\Common\Event;
 use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Http\QueryString;
 use Guzzle\Service\Command\CommandInterface;
 use Guzzle\Service\Command\DefaultRequestSerializer;
-use Guzzle\Service\Command\RequestSerializerInterface;
+use Guzzle\Service\Command\LocationVisitor\VisitorFlyweight;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class SsoPlugin implements EventSubscriberInterface, RequestSerializerInterface
+class SsoPlugin extends DefaultRequestSerializer implements EventSubscriberInterface
 {
-    /** @var QuerySigner */
-    private $signer;
-
-    /** @var RequestSerializerInterface */
-    private $serializer;
-
     /**
-     * SsoPlugin Constructor.
-     *
-     * @param QuerySigner $signer
-     * @param RequestSerializerInterface $serializer
+     * @param VisitorFlyweight $factory
      */
-    public function __construct(QuerySigner $signer, RequestSerializerInterface $serializer = null)
+    public function __construct(VisitorFlyweight $factory = null)
     {
-        $this->signer = $signer;
-        $this->serializer = $serializer ?: DefaultRequestSerializer::getInstance();
+        parent::__construct($factory ?: VisitorFlyweight::getInstance());
     }
 
     /**
@@ -55,10 +44,11 @@ class SsoPlugin implements EventSubscriberInterface, RequestSerializerInterface
     public function prepare(CommandInterface $command)
     {
         /** @var \Guzzle\Http\Message\EntityEnclosingRequestInterface $request */
-        $request    = $this->serializer->prepare($command);
-        $payload    = new Payload($this->signer, $request->getPostFields()->toArray());
+        $request    = parent::prepare($command);
+        $payload    = new Payload($request->getPostFields()->toArray());
         $sso        = QueryString::fromString($payload->getQueryString());
 
+        $request->getPostFields()->remove('sso_secret');
         $request->getQuery()->merge($sso);
 
         return $request;
