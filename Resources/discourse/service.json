@@ -7,13 +7,5 @@
         "api/sso.json",
         "api/users.json",
         "api/base.json"
-    ],
-    "models": {
-        "jsonResponse": {
-            "type": "object",
-            "additionalProperties": {
-                "location": "json"
-            }
-        }
-    }
+    ]
 }

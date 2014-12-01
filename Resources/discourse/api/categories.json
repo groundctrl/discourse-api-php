@@ -11,8 +11,8 @@
             "uri": "/c/{slug}/l/latest.json"
         },
         "CreateCategory": {
-            "extends": "Categories",
-            "httpMethod": "POST",
+            "extends": "discourse.post",
+            "uri": "/categories.json",
             "parameters": {
                 "name": {
                     "type": "string",
@@ -32,9 +32,6 @@
                     "required": true,
                     "default": "FFFFFF"
                 }
-            },
-            "additionalProperties": {
-                "location": "postField"
             }
         },
         "UpdateCategory": {

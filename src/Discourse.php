@@ -8,7 +8,7 @@ use Guzzle\Service\Description\ServiceDescription;
 
 class Discourse extends Client
 {
-    const VERSION = 'DEV';
+    const VERSION = '0.3.0';
 
     /**
      * Creates a new Discourse client from config values.
@@ -26,11 +26,12 @@ class Discourse extends Client
         $client = new self($config['base_url'], [
             'command.params' => [
                 'api_key'       => $config['api_key'],
-                'api_username'  => $config['api_username']
+                'api_username'  => $config['api_username'],
+                'sso_secret'    => $config['sso_secret'],
             ]
         ]);
 
-        $client->addSubscriber(new SsoPlugin(new QuerySigner($config['sso_secret'])));
+        $client->addSubscriber(new SsoPlugin());
 
         return $client->setDescription(static::createDescription());
     }

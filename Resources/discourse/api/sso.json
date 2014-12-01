@@ -7,22 +7,18 @@
                 "id": {
                     "type": "integer",
                     "sentAs": "external_id",
-                    "location": "json",
+                    "location": "postField",
                     "required": true
                 },
                 "email": {
                     "type": "string",
-                    "location": "json",
+                    "location": "postField",
                     "required": true
                 },
                 "username": {
                     "type": "string",
-                    "location": "json",
+                    "location": "postField",
                     "required": true
-                },
-                "name": {
-                    "type": "string",
-                    "location": "json"
                 }
             }
         }

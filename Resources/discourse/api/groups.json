@@ -15,6 +15,18 @@
                 }
             }
         },
+        "DeleteGroup": {
+            "extends": "discourse.base",
+            "httpMethod": "DELETE",
+            "uri": "/admin/groups/{id}",
+            "parameters": {
+                "id": {
+                    "type": "integer",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
         "GroupAdd": {
             "extends": "discourse.base",
             "httpMethod": "PATCH",

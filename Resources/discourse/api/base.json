@@ -18,7 +18,7 @@
         "discourse.post": {
             "extends": "discourse.base",
             "httpMethod": "POST",
-            "additionalProperties": {
+            "additionalParameters": {
                 "location": "postField"
             }
         },
@@ -34,6 +34,14 @@
                     "location": "uri",
                     "required": true
                 }
+            }
+        }
+    },
+    "models": {
+        "jsonResponse": {
+            "type": "object",
+            "additionalProperties": {
+                "location": "json"
             }
         }
     }

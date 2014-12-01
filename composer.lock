@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "17e72192afb8c7c0144ebb08667a56ff",
+    "hash": "17927cd0e7ca36b7caeee09a5787cefd",
     "packages": [
         {
             "name": "ctrl/discourse-sso",
-            "version": "v1.0.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/groundctrl/discourse-sso-php.git",
-                "reference": "d414204a85b244cd65197628ca60d3db1024583e"
+                "reference": "8ef1d0ced2e0502b673b25c46aab09cce2efc765"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/groundctrl/discourse-sso-php/zipball/d414204a85b244cd65197628ca60d3db1024583e",
-                "reference": "d414204a85b244cd65197628ca60d3db1024583e",
+                "url": "https://api.github.com/repos/groundctrl/discourse-sso-php/zipball/8ef1d0ced2e0502b673b25c46aab09cce2efc765",
+                "reference": "8ef1d0ced2e0502b673b25c46aab09cce2efc765",
                 "shasum": ""
             },
             "require": {
@@ -43,7 +43,7 @@
                 }
             ],
             "description": "Discourse SSO for offsite logins",
-            "time": "2014-11-24 18:05:19"
+            "time": "2014-12-01 02:11:19"
         },
         {
             "name": "guzzle/guzzle",
@@ -139,17 +139,17 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.5.7",
+            "version": "v2.6.0",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "bb6fc12085cd195dceaf48016087b12b632df497"
+                "reference": "697331d4ac78668cf6d21a2bb009b3faae92814f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/bb6fc12085cd195dceaf48016087b12b632df497",
-                "reference": "bb6fc12085cd195dceaf48016087b12b632df497",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/697331d4ac78668cf6d21a2bb009b3faae92814f",
+                "reference": "697331d4ac78668cf6d21a2bb009b3faae92814f",
                 "shasum": ""
             },
             "require": {
@@ -158,7 +158,8 @@
             "require-dev": {
                 "psr/log": "~1.0",
                 "symfony/config": "~2.0",
-                "symfony/dependency-injection": "~2.0,<2.6.0",
+                "symfony/dependency-injection": "~2.6",
+                "symfony/expression-language": "~2.6",
                 "symfony/stopwatch": "~2.2"
             },
             "suggest": {
@@ -168,7 +169,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -192,7 +193,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2014-10-30 20:17:55"
+            "time": "2014-11-28 10:00:40"
         }
     ],
     "packages-dev": [],
