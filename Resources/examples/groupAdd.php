@@ -12,4 +12,4 @@ $id = array_shift($argv);
 
 print_r($argv);
 
-print_r($client->groupAdd( array ('id' => (int)$id, 'changes' => array ('add' => $argv))));
+print_r($client->groupAdd( array ('id' => (int)$id, 'usernames' => $argv)));
