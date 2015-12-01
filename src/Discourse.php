@@ -8,7 +8,7 @@ use Guzzle\Service\Description\ServiceDescription;
 
 class Discourse extends Client
 {
-    const VERSION = '0.3.0';
+    const VERSION = '0.4.0';
 
     /**
      * Creates a new Discourse client from config values.

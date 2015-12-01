@@ -9,9 +9,10 @@
             "extends": "Groups",
             "httpMethod": "POST",
             "parameters": {
-                "group": {
-                    "type": "array",
-                    "location": "postField"
+                "name": {
+                    "type": "string",
+                    "location": "postField",
+                    "required": true
                 }
             }
         },
@@ -29,55 +30,38 @@
         },
         "GroupAdd": {
             "extends": "discourse.base",
-            "httpMethod": "PATCH",
-            "uri": "/admin/groups/{id}",
+            "httpMethod": "PUT",
+            "uri": "/admin/groups/{id}/members.json",
             "parameters": {
                 "id": {
                     "type": "integer",
                     "location": "uri",
                     "required": true
                 },
-                "changes": {
-                    "type": "object",
+                "usernames": {
+                    "type": "array",
                     "location": "json",
                     "required": true,
-                    "properties": {
-                        "add": {
-                            "type": "array",
-                            "location": "json",
-                            "required": true,
-                            "items": {
-                                "type": "string"
-                            }
-                        }
+                    "items": {
+                        "type": "string"
                     }
                 }
             }
         },
         "GroupRemove": {
             "extends": "discourse.base",
-            "httpMethod": "PATCH",
-            "uri": "/admin/groups/{id}",
+            "httpMethod": "DELETE",
+            "uri": "/admin/groups/{id}/members.json",
             "parameters": {
                 "id": {
                     "type": "integer",
                     "location": "uri",
                     "required": true
                 },
-                "changes": {
-                    "type": "object",
-                    "location": "json",
-                    "required": true,
-                    "properties": {
-                        "delete": {
-                            "type": "array",
-                            "location": "json",
-                            "required": true,
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    }
+                "username": {
+                    "type": "string",
+                    "location": "postField",
+                    "required": true
                 }
             }
         },
