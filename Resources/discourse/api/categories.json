@@ -50,6 +50,11 @@
             "extends": "discourse.slug",
             "httpMethod": "DELETE",
             "uri": "/categories/{slug}.json"
+        },
+        "Site": {
+            "extends": "discourse.base",
+            "httpMethod": "GET",
+            "uri": "/site.json"
         }
     }
 }
