@@ -1,0 +1,21 @@
+{
+    "operations": {
+        "UpdatePost": {
+            "extends": "discourse.put",
+            "httpMethod": "PUT",
+            "uri": "/posts/{id}",
+            "parameters": {
+                "post[raw]": {
+                    "type": "string",
+                    "location": "postField",
+                    "required": true
+                },
+                "id": {
+                    "type": "integer",
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        }
+    }
+}
