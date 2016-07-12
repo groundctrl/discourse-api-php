@@ -2,6 +2,7 @@
     "name": "Discourse",
     "description": "Manage your Discourse instance via the REST API",
     "includes": [
+        "api/posts.json",
         "api/categories.json",
         "api/groups.json",
         "api/sso.json",
